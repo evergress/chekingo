@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= @child.first_name %><br/>
+<%= @child.last_name %><br/>
+<%= @child.allergens %><br/>
+<%= @child.birthdate %></br>
+
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>

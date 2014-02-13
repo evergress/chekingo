@@ -1,0 +1,2 @@
+module AddKidHelper
+end

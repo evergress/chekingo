@@ -1,0 +1,18 @@
+/*Fonts*/
+
+h1
+{
+	font-family: "museo-sans",sans-serif;
+	font-size: 25px;
+	color:#f1f1f1;
+	margin: 0px auto 0px auto;
+	padding: 7px 0px 0px 0px;
+}
+
+h2
+{
+	font-family: "museo-sans",sans-serif;
+	font-size: 14px;
+	color:#1e1e20;
+	margin:0;
+}

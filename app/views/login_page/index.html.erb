@@ -1,0 +1,42 @@
+<div class="header">
+	<div class="header-wrapper">
+		<div class="header-container">
+			<h1>Sign In</h1>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="main-container">
+		<div class="loginQs">
+			<h1>Already Register?</h1>
+		</div>
+			<%= form_tag do %>
+			  <div class="Phonefield">
+		        <div class="inputPhone">
+			      <%= text_field_tag :phone, params[:phone], class: "textfield", placeholder: "Phone Number:" %>
+			    </div>
+			  </div>
+			  <div class="Pinfield">
+			    <div class="inputPhone">
+			      <%= password_field_tag :pin, params[:pin], class: "textfield", placeholder: "PIN" %>
+			    </div>
+			  </div>
+			<% end %>
+
+		<div class="next">
+				<%= link_to "next", login_page_index_path, method: :post, class: "auth_guardian_link" %>
+			<!--<input type="image" value="submit" src="images/form-button.png" alt="submit Button" onMouseOver="this.src='images/form-button.png'"></a>-->
+		</div>
+
+		<div class="loginQs">
+			<h1>New to Union Grove?</h1>
+		</div>
+
+		<div class="next">
+			
+				<%= link_to "Guest Login", :controller => :guestparent, :action => :index %>
+			
+		</div>
+	</div>
+</div>

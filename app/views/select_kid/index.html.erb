@@ -1,0 +1,57 @@
+<div class="header">
+	<div class="header-wrapper">
+		<div class="header-container">
+			<h1>Select Kids</h1>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+		<div class="kids-tableview">
+			<% @kids.each do |kid| %>
+			<div class="kids-cell">
+				<div class="kids-cell-container">
+					<table class="kids-cell-table">
+						<tr class="kids-cell-row">
+							<td class="kidcell1">
+								<div class="kids-photo">
+								</div>
+							</td>
+							
+							<td class="kidcell2">
+								<div class="kids-name">
+									<h3><%= kid.first_name %> <%= kid.last_name %></h3>
+								</div>
+								
+							</td>
+							<td class="kidcell3">
+								<%= form_for :selecteds do |f|%>
+								<div class="kids-location">
+										
+										<%= f.select "location", options_for_select(@classes), placeholder: "Location", include_blank: true %>
+									
+								</div>
+								<% end %>
+								
+							</td>
+							<td class="checkbox">
+								<input id="check1" type="checkbox" name="check" value="check1">
+								<label for="check1"></label>
+							</td>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<% end %>
+										
+		</div>
+</div>
+
+<div class="footer">
+	<div class="login">
+			<h1><%= link_to "Finish", summary_page_index_path %></h1>
+		</a>
+	</div>
+</div>
+

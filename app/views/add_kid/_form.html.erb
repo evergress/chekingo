@@ -1,0 +1,40 @@
+<div class="kidsname">
+	<%= kid.text_field :first_name, placeholder: "First", class: "name" %>
+	<%= kid.text_field :last_name, placeholder: "Last", class: "name" %>
+</div>
+<br>
+<div class="allergens">
+<h4>Allergens/Asthma:</h4>
+	<div class="allergens-list">
+		<ul>
+			<li>
+    			<%= kid.check_box :soy %>
+				<%= kid.label :soy, "Soy" %>
+				<%= kid.check_box :peanuts %>
+				<%= kid.label :peanuts, "Peanuts" %>
+				<%= kid.check_box :wheat %>
+				<%= kid.label :wheat, "Wheat" %>
+    		</li>
+    		<li>
+    			<%= kid.check_box :milk %>
+    			<%= kid.label :milk, "Milk" %>
+    			<%= kid.check_box :nuts %>
+    			<%= kid.label :nuts, "Tree Nuts" %>
+    			<%= kid.check_box :eggs %>
+    			<%= kid.label :eggs, "Eggs" %>
+    		</li>
+    		<li class="otherNeeds">
+    			<!--<input type="checkbox" id="asthma3">
+    			<label for="asthma3">Asthma</label>-->
+    			<%= kid.check_box :other, class: "other3" %>
+    			<%= kid.label :other, "Other Needs" %>
+    			<div class="concernsContainer3">
+        			<h3>Please type your kid's needs or concerns</h3>
+    				<div class="concernsBox">
+    					<%= kid.text_area(:other, placeholder: "Type here...", maxlength: 500) %>
+    				</div>
+    			</div>
+    		</li>
+    	</ul>
+	</div>
+</div>

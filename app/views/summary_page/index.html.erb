@@ -1,0 +1,79 @@
+<div class="header">
+	<div class="header-wrapper">
+		<div class="header-container">
+			<h1>Summary</h1>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="kids-tableview">
+		<div class="sectiontitle">
+			<h1>Selected Kids</h1>
+		</div>
+			<% @kids.each do |kid| %>
+			<div class="selectedkids">
+				<div class="selectedkids-container">
+					<h1><%= kid.first_name %> <%= kid.last_name %></h1>
+						<div class="selectedkids-info">
+							<div class="info-left">
+								<h2>Allergens:</h2>
+								<h2>Needs or Concerns:</h2>	
+							</div>
+							<div class="info-right">
+								<div class="kids-allergens">
+											  	<% kid.attributes.each do |key, value| %>
+											  			<% if value == true %>
+												  		  <h3><%= key %>, </h3>
+												  		<% else %>
+												  
+												  		<% end %>
+										
+											  	<% end %>											
+									</div>
+										<% kid.attributes.each do |key, value| %>
+										  <% if key == "other" %>
+											<div class="kids-concerns">
+										    	<h3><%= value %></h3>
+											</div>
+										  <% else %>
+										  <% end %>
+										<% end %>								
+							</div>
+						</div>
+				</div>
+			</div>
+			<% end %>
+			<% unless @kids.count > 0 %>
+				<% @selected_kids.each do |selected| %>
+				<div class="selectedkids">
+					<div class="selectedkids-container">
+						<h1><%= selected.first_name %> <%= selected.last_name %></h1>
+							<div class="selectedkids-info">
+								<div class="info-left">
+									<h2>Allergens:</h2>
+									<h2>Needs or Concerns:</h2>	
+								</div>
+								<div class="info-right">
+									<div class="kids-allergens">
+																		
+									</div>
+									<div class="kids-concerns">
+								    
+									</div>
+											  							
+								</div>
+							</div>
+					</div>
+				</div>
+				<% end %>
+			<% end %>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="login">
+			<h1><%= link_to "Finish", login_page_index_path %></h1>
+		</a>
+	</div>
+</div>

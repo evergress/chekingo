@@ -1,0 +1,39 @@
+<div class="header-container">
+	<div class="backbutton">
+		<%= link_to image_tag("backbutton.png", :border => 0), controller: :login_page, action: :index %>
+	</div>
+	<div class="backbutton">
+		<h2><%= link_to "Sign In", controller: :login_page, action: :index %></h2>
+	</div>
+	<h1>Guest Login</h1>
+</div>
+
+<div class="content">
+	<div class="main-container">
+		<div class="loginQs">
+			<h1>Please type your information here...</h1>
+		</div>
+		<%= form_for(:guestparent) do |gp| %>
+			<div class="Firstnamefield">
+				<%= gp.text_field :first_name, :placeholder => "First Name", class: "textfield" %>
+			</div>
+			<div class="Lastnamefield">
+			    <%= gp.text_field :last_name, :placeholder => "Last Name", class: "textfield" %>
+			</div>
+			<div class="GuestPhone">
+				<%= gp.phone_field :phone_number, :placeholder => "Phone Number", class: "textfield" %>
+				<%= gp.hidden_field :pin, value: @pin %>
+			</div>
+
+		<div class="next">
+			<%= link_to "NEXT", guestparent_index_path, method: :post, class: "login_link" %>
+		</div>
+
+		<% if !flash[:notice].blank? %>
+			<div class="flash_notice">
+			  <%= flash[:notice] %>
+			</div>
+		<% end %>
+
+		<% end %>
+	</div>

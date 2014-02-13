@@ -1,0 +1,185 @@
+<div class="header-container">
+
+</div>
+
+<div class="content2">
+	<div class="kids-tableview">
+		
+			<div class="bottomline">
+				<%= form_for(:guestparent_kids, mehtod: :post) do |g| %>
+				<div class="kidscontainer">
+					<h4>Kids Name:</h4>
+					<%= g.fields_for(:add_kids) do |kid| %>
+					<div class="kidsname">
+						<%= kid.text_field :first_name, placeholder: "First", class: "name" %>
+						<%= kid.text_field :last_name, placeholder: "Last", class: "name" %>
+					</div>
+	            <br>
+	            	<div class="allergens">
+	        		<h4>Allergens/Asthma:</h4>
+		        		<div class="allergens-list">
+		        			<ul>
+		        				<li>
+		        					<%= kid.check_box :soy %>
+		        					<%= kid.label :soy %>
+		        					<%= kid.check_box :peanuts %>
+		        					<%= kid.label :peanuts %>
+		        					<%= kid.check_box :wheat %>
+		        					<%= kid.label :wheat %>
+				        		</li>
+				        		<li>
+				        			<%= kid.check_box :milk %>
+				        			<%= kid.label :milk %>
+				        			<%= kid.check_box :nuts %>
+				        			<%= kid.label :nuts, "Tree Nuts" %>
+				        			<%= kid.check_box :eggs %>
+				        			<%= kid.label :eggs %>
+				        		</li>
+				        		<li class="otherNeeds">
+				        			<%= kid.check_box :other, {class: "other"} %>
+				        			<%= kid.label :other, "Other Needs" %>
+				        			<div class="concernsContainer">
+					        			<h3>Please type your kid's needs or concerns</h3>
+					    				<div class="concernsBox">
+					    					<%= kid.text_area(:other, placeholder: "Type here...", maxlength: 500) %>
+					    				</div>
+					    			</div>
+					    			<%= kid.hidden_field :pin, value: params[:pin] %>
+				        		</li>
+				        	</ul>
+	        			</div>
+	    			</div>
+	    		</div>
+	    		<% end %>
+	    		<% if !flash[:notice].blank? %>
+				<div class="flash_notice">
+					<%= flash[:notice] %>
+				</div>
+				<% end %>
+	    	</div>
+		    		<div class="addKid">
+		    			<a href="#"><h1>Add Kid</h1></a>
+		    		</div>
+
+<!---HIDDEN ROWS FOW EXTRA KIDS-->		    		
+		<div class="hidden-container" style="display:none;">
+			<div class="hidden-bottomline">
+					<div class="removeAction">
+						<div class="removeKid">
+		    			<a href="#"><h1>x</h1></a>
+		    		</div>
+				</div>
+				<div class="kidscontainer">
+					<h4>Kids Name:</h4>
+					<%= g.fields_for(:add_kid2) do |kid| %>
+					<div class="kidsname">
+						<%= kid.text_field :first_name, placeholder: "First", class: "name" %>
+						<%= kid.text_field :last_name, placeholder: "Last", class: "name" %>
+					</div>
+	            <br>
+	            	<div class="allergens">
+	        		<h4>Allergens/Asthma:</h4>
+		        		<div class="allergens-list">
+		        			<ul>
+		        				<li>
+		        					<%= kid.check_box :soy %>
+		        					<%= kid.label :soy, "Soy" %>
+		        					<%= kid.check_box :peanuts %>
+		        					<%= kid.label :peanuts, "Peanuts" %>
+		        					<%= kid.check_box :wheat %>
+		        					<%= kid.label :wheat, "Wheat" %>
+				        		</li>
+				        		<li>
+				        			<%= kid.check_box :milk %>
+				        			<%= kid.label :milk, "Milk" %>
+				        			<%= kid.check_box :nuts %>
+				        			<%= kid.label :nuts, "Tree Nuts" %>
+				        			<%= kid.check_box :eggs %>
+				        			<%= kid.label :eggs, "Eggs" %>
+				        		</li>
+				        		<li class="otherNeeds">
+				        			<!--<input type="checkbox" id="asthma2">
+				        			<label for="asthma2">Asthma</label>-->
+				        			<%= kid.check_box :other, class: "other2" %>
+				        			<%= kid.label :other, "Other Needs" %>
+				        			<div class="concernsContainer2">
+					        			<h3>Please type your kid's needs or concerns</h3>
+					    				<div class="concernsBox">
+					    					<%= kid.text_area(:other, placeholder: "Type here...", maxlength: 500) %>
+					    				</div>
+					    			</div>
+					    			<%= kid.hidden_field :pin, value: params[:pin] %>
+				        		</li>
+				        	</ul>
+	        			</div>
+	        		</div>
+	        		<% end %>
+	    		</div>
+	    	</div>
+		    	<div class="addKid2">
+		    			<a href="#"><h1>Add Kid</h1></a>
+		    		</div>
+	    </div><!--HIDDEN CONTAINER-->
+		    		
+	    <div class="hidden-container2" style="display:none;">	
+			<div class="hidden-bottomline2">
+				<div class="kidscontainer">
+					<h4>Kids Name:</h4>
+					<%= g.fields_for(:add_kid3) do |kid| %>
+					<div class="kidsname">
+						<%= kid.text_field :first_name, placeholder: "First", class: "name" %>
+						<%= kid.text_field :last_name, placeholder: "Last", class: "name" %>
+					</div>
+	            	<br>
+	            	<div class="allergens">
+	        		<h4>Allergens/Asthma:</h4>
+		        		<div class="allergens-list">
+		        			<ul>
+		        				<li>
+				        			<%= kid.check_box :soy %>
+		        					<%= kid.label :soy, "Soy" %>
+		        					<%= kid.check_box :peanuts %>
+		        					<%= kid.label :peanuts, "Peanuts" %>
+		        					<%= kid.check_box :wheat %>
+		        					<%= kid.label :wheat, "Wheat" %>
+				        		</li>
+				        		<li>
+				        			<%= kid.check_box :milk %>
+				        			<%= kid.label :milk, "Milk" %>
+				        			<%= kid.check_box :nuts %>
+				        			<%= kid.label :nuts, "Tree Nuts" %>
+				        			<%= kid.check_box :eggs %>
+				        			<%= kid.label :eggs, "Eggs" %>
+				        		</li>
+				        		<li class="otherNeeds">
+				        			<!--<input type="checkbox" id="asthma3">
+				        			<label for="asthma3">Asthma</label>-->
+				        			<%= kid.check_box :other, class: "other3" %>
+				        			<%= kid.label :other, "Other Needs" %>
+				        			<div class="concernsContainer3">
+					        			<h3>Please type your kid's needs or concerns</h3>
+					    				<div class="concernsBox">
+					    					<%= kid.text_area(:other, placeholder: "Type here...", maxlength: 500) %>
+					    				</div>
+					    			</div>
+					    			<%= kid.hidden_field :pin, value: params[:pin] %>
+				        		</li>
+				        	</ul>
+	        			</div>
+	        		</div>
+	        		<% end %>
+	    		</div>
+	    		<div class="removeKid2">
+	    			<a href="#"><h1>x</h1></a>
+	    		</div>
+	    	</div>
+	    </div><!--HIDDEN CONTAINER-->
+	</div>
+</div>
+
+<div class="footer">
+	<div class="next">
+			<%= g.submit "next" %>
+		</div>
+</div>
+<% end %>
